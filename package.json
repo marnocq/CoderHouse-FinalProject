@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Proyecto final del curso de backend de CoderHouse",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/marnocq/CoderHouse-FinalProject#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "nodemon": "^2.0.12"
   }
 }

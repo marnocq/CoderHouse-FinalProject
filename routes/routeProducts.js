@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import moment from 'moment';
 
-const ADMIN = false;
+const ADMIN = true;
 
 export default (io) => {
     const router = express.Router();
@@ -46,7 +46,7 @@ export default (io) => {
         newProducto.id = productos.length +1
         newProducto.timestamp = moment().format('DD/MM/YYYY HH:mm:ss')
         productos.push(newProducto)     
-        //fs.writeFileSync('./data/productos.json', JSON.stringify(productos));   
+        fs.writeFileSync('./data/productos.json', JSON.stringify(productos));   
         //res.send(newProducto)
         res.send('success');
     });
@@ -66,7 +66,7 @@ export default (io) => {
         res.send(productoAct)
     });
 
-    router.get('/borrar/:id', function(req, res) {
+    router.delete('/borrar/:id', function(req, res) {
         const productoDel = productos.filter((producto) => producto.id == req.params.id)
         productos = productos.filter((producto) => producto.id != req.params.id)    
         res.send(productoDel)
